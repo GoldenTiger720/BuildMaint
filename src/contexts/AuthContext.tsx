@@ -29,7 +29,7 @@ export const useAuth = () => {
 const mockUsers: User[] = [
   {
     id: '1',
-    name: 'Sarah Johnson',
+    name: 'Mason',
     email: 'admin@buildmaint.com',
     role: 'admin'
   },

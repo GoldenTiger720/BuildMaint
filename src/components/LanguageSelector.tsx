@@ -40,7 +40,7 @@ export const LanguageSelector: React.FC = () => {
             <img 
               src={currentLanguage.flag} 
               alt={currentLanguage.name}
-              className="w-4 h-3 object-cover rounded-sm"
+              className="w-8 h-6 object-cover"
             />
           )}
           <GlobeAltIcon className="h-4 w-4" />
@@ -56,7 +56,7 @@ export const LanguageSelector: React.FC = () => {
             <img 
               src={option.flag} 
               alt={option.name}
-              className="w-4 h-3 object-cover rounded-sm"
+              className="w-8 h-6 object-cover"
             />
             {option.name}
           </DropdownMenuItem>
