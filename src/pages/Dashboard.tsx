@@ -14,40 +14,6 @@ import {
   PlusIcon
 } from '@heroicons/react/24/outline';
 
-const stats = [
-  {
-    title: 'Total Calls',
-    value: '127',
-    change: '+12.5%',
-    trend: 'up',
-    icon: PhoneIcon,
-    color: 'primary'
-  },
-  {
-    title: 'Open Calls',
-    value: '24',
-    change: '+8.2%',
-    trend: 'up',
-    icon: ClockIcon,
-    color: 'warning'
-  },
-  {
-    title: 'Active Clients',
-    value: '89',
-    change: '+5.1%',
-    trend: 'up',
-    icon: UsersIcon,
-    color: 'secondary'
-  },
-  {
-    title: 'Monthly Revenue',
-    value: '$45,280',
-    change: '+18.7%',
-    trend: 'up',
-    icon: CurrencyDollarIcon,
-    color: 'success'
-  }
-];
 
 const recentCalls = [
   {
@@ -88,34 +54,98 @@ const recentCalls = [
   }
 ];
 
-const getStatusBadge = (status: string) => {
-  switch (status) {
-    case 'open':
-      return <Badge variant="secondary" className="status-open">Open</Badge>;
-    case 'in-progress':
-      return <Badge variant="secondary" className="status-progress">In Progress</Badge>;
-    case 'completed':
-      return <Badge variant="secondary" className="status-completed">Completed</Badge>;
-    default:
-      return <Badge variant="secondary">{status}</Badge>;
-  }
-};
-
-const getPriorityBadge = (priority: string) => {
-  switch (priority) {
-    case 'high':
-      return <Badge variant="destructive">High</Badge>;
-    case 'medium':
-      return <Badge variant="secondary">Medium</Badge>;
-    case 'low':
-      return <Badge variant="outline">Low</Badge>;
-    default:
-      return <Badge variant="secondary">{priority}</Badge>;
-  }
-};
 
 export const Dashboard: React.FC = () => {
   const { t } = useTranslation();
+  
+  const stats = [
+    {
+      title: t('dashboard.totalCalls'),
+      value: '127',
+      change: '+12.5%',
+      trend: 'up',
+      icon: PhoneIcon,
+      color: 'primary'
+    },
+    {
+      title: t('dashboard.openCalls'),
+      value: '24',
+      change: '+8.2%',
+      trend: 'up',
+      icon: ClockIcon,
+      color: 'warning'
+    },
+    {
+      title: t('dashboard.activeClients'),
+      value: '89',
+      change: '+5.1%',
+      trend: 'up',
+      icon: UsersIcon,
+      color: 'secondary'
+    },
+    {
+      title: t('dashboard.monthlyRevenue'),
+      value: '$45,280',
+      change: '+18.7%',
+      trend: 'up',
+      icon: CurrencyDollarIcon,
+      color: 'success'
+    }
+  ];
+
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case 'open':
+        return <Badge variant="secondary" className="status-open">{t('status.open')}</Badge>;
+      case 'in-progress':
+        return <Badge variant="secondary" className="status-progress">{t('status.inProgress')}</Badge>;
+      case 'completed':
+        return <Badge variant="secondary" className="status-completed">{t('status.completed')}</Badge>;
+      default:
+        return <Badge variant="secondary">{status}</Badge>;
+    }
+  };
+
+  const getPriorityBadge = (priority: string) => {
+    switch (priority) {
+      case 'high':
+        return <Badge variant="destructive">{t('priority.high')}</Badge>;
+      case 'medium':
+        return <Badge variant="secondary">{t('priority.medium')}</Badge>;
+      case 'low':
+        return <Badge variant="outline">{t('priority.low')}</Badge>;
+      default:
+        return <Badge variant="secondary">{priority}</Badge>;
+    }
+  };
+
+  const getServiceName = (service: string) => {
+    switch (service) {
+      case 'HVAC Repair':
+        return t('services.hvacRepair');
+      case 'Plumbing Repair':
+        return t('services.plumbingRepair');
+      case 'Cleaning Service':
+        return t('services.cleaningService');
+      default:
+        return service;
+    }
+  };
+
+  const getTimeAgo = (timeStr: string) => {
+    if (timeStr.includes('hours ago')) {
+      const num = timeStr.split(' ')[0];
+      return `${num} ${t('time.hoursAgo')}`;
+    }
+    if (timeStr.includes('day ago') && !timeStr.includes('days')) {
+      return `1 ${t('time.dayAgo')}`;
+    }
+    if (timeStr.includes('days ago')) {
+      const num = timeStr.split(' ')[0];
+      return `${num} ${t('time.daysAgo')}`;
+    }
+    return timeStr;
+  };
   
   return (
     <div className="space-y-6 animate-fade-in">
@@ -124,12 +154,12 @@ export const Dashboard: React.FC = () => {
         <div>
           <h1 className="text-3xl font-bold">{t('dashboard.title')}</h1>
           <p className="text-muted-foreground">
-            Overview of your building maintenance operations
+            {t('dashboard.overview')}
           </p>
         </div>
         <Button className="bg-gradient-primary">
           <PlusIcon className="mr-2 h-4 w-4" />
-          New Call
+          {t('dashboard.newCall')}
         </Button>
       </div>
 
@@ -145,7 +175,7 @@ export const Dashboard: React.FC = () => {
               <div className="text-2xl font-bold">{stat.value}</div>
               <div className="flex items-center text-xs text-muted-foreground">
                 <ArrowTrendingUpIcon className="mr-1 h-3 w-3 text-success" />
-                {stat.change} from last month
+                {stat.change} {t('dashboard.fromLastMonth')}
               </div>
             </CardContent>
           </Card>
@@ -159,7 +189,7 @@ export const Dashboard: React.FC = () => {
           <CardHeader>
             <CardTitle>{t('dashboard.recentMaintenanceCalls')}</CardTitle>
             <CardDescription>
-              Latest service requests and their current status
+              {t('dashboard.latestServiceRequests')}
             </CardDescription>
           </CardHeader>
           <CardContent>
@@ -176,11 +206,11 @@ export const Dashboard: React.FC = () => {
                       {getPriorityBadge(call.priority)}
                     </div>
                     <p className="font-semibold">{call.client}</p>
-                    <p className="text-sm text-muted-foreground">{call.service}</p>
+                    <p className="text-sm text-muted-foreground">{getServiceName(call.service)}</p>
                     <div className="flex items-center text-xs text-muted-foreground mt-1">
-                      <span>Assigned to {call.technician}</span>
+                      <span>{t('dashboard.assignedTo')} {call.technician}</span>
                       <span className="mx-1">•</span>
-                      <span>{call.created}</span>
+                      <span>{getTimeAgo(call.created)}</span>
                     </div>
                   </div>
                 </div>
@@ -193,44 +223,44 @@ export const Dashboard: React.FC = () => {
         <div className="space-y-4">
           <Card>
             <CardHeader>
-              <CardTitle>Quick Actions</CardTitle>
+              <CardTitle>{t('dashboard.quickActions')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <Button variant="outline" className="w-full justify-start">
                 <PhoneIcon className="mr-2 h-4 w-4" />
-                Create New Call
+                {t('dashboard.createNewCall')}
               </Button>
               <Button variant="outline" className="w-full justify-start">
                 <UsersIcon className="mr-2 h-4 w-4" />
-                Add Client
+                {t('dashboard.addClient')}
               </Button>
               <Button variant="outline" className="w-full justify-start">
                 <CheckCircleIcon className="mr-2 h-4 w-4" />
-                Schedule Maintenance
+                {t('dashboard.scheduleMaintenance')}
               </Button>
               <Button variant="outline" className="w-full justify-start">
                 <CurrencyDollarIcon className="mr-2 h-4 w-4" />
-                Generate Invoice
+                {t('dashboard.generateInvoice')}
               </Button>
             </CardContent>
           </Card>
 
           <Card>
             <CardHeader>
-              <CardTitle>System Alerts</CardTitle>
+              <CardTitle>{t('dashboard.systemAlerts')}</CardTitle>
             </CardHeader>
             <CardContent className="space-y-3">
               <div className="flex items-start space-x-2 p-3 bg-warning-light rounded-lg">
                 <ExclamationTriangleIcon className="h-4 w-4 text-warning mt-0.5" />
                 <div>
-                  <p className="text-sm font-medium">3 Overdue Calls</p>
-                  <p className="text-xs text-muted-foreground">Require immediate attention</p>
+                  <p className="text-sm font-medium">3 {t('dashboard.overdueCalls')}</p>
+                  <p className="text-xs text-muted-foreground">{t('dashboard.requireImmediate')}</p>
                 </div>
               </div>
               <div className="flex items-start space-x-2 p-3 bg-primary-light rounded-lg">
                 <ClockIcon className="h-4 w-4 text-primary mt-0.5" />
                 <div>
-                  <p className="text-sm font-medium">5 Scheduled Today</p>
+                  <p className="text-sm font-medium">5 {t('dashboard.scheduledToday')}</p>
                   <p className="text-xs text-muted-foreground">{t('dashboard.maintenanceAppointments')}</p>
                 </div>
               </div>

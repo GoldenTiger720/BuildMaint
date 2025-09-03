@@ -15,10 +15,26 @@
   },
   "dashboard": {
     "title": "Dashboard",
+    "overview": "Overview of your building maintenance operations",
+    "newCall": "New Call",
+    "totalCalls": "Total Calls",
+    "openCalls": "Open Calls",
     "activeClients": "Active Clients",
+    "monthlyRevenue": "Monthly Revenue",
+    "fromLastMonth": "from last month",
     "recentMaintenanceCalls": "Recent Maintenance Calls",
+    "latestServiceRequests": "Latest service requests and their current status",
+    "assignedTo": "Assigned to",
     "scheduleMaintenance": "Schedule Maintenance",
-    "maintenanceAppointments": "Maintenance appointments"
+    "maintenanceAppointments": "Maintenance appointments",
+    "quickActions": "Quick Actions",
+    "createNewCall": "Create New Call",
+    "addClient": "Add Client",
+    "generateInvoice": "Generate Invoice",
+    "systemAlerts": "System Alerts",
+    "overdueCalls": "Overdue Calls",
+    "requireImmediate": "Require immediate attention",
+    "scheduledToday": "Scheduled Today"
   },
   "calls": {
     "title": "Maintenance Calls"
@@ -77,5 +93,25 @@
     "delete": "Delete",
     "save": "Save",
     "cancel": "Cancel"
+  },
+  "status": {
+    "open": "Open",
+    "inProgress": "In Progress",
+    "completed": "Completed"
+  },
+  "priority": {
+    "high": "High",
+    "medium": "Medium",
+    "low": "Low"
+  },
+  "services": {
+    "hvacRepair": "HVAC Repair",
+    "plumbingRepair": "Plumbing Repair",
+    "cleaningService": "Cleaning Service"
+  },
+  "time": {
+    "hoursAgo": "hours ago",
+    "dayAgo": "day ago",
+    "daysAgo": "days ago"
   }
 }

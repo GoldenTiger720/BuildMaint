@@ -15,10 +15,26 @@
   },
   "dashboard": {
     "title": "Painel",
+    "overview": "Visão geral das suas operações de manutenção predial",
+    "newCall": "Nova Chamada",
+    "totalCalls": "Total de Chamadas",
+    "openCalls": "Chamadas Abertas",
     "activeClients": "Clientes Ativos",
+    "monthlyRevenue": "Receita Mensal",
+    "fromLastMonth": "do mês passado",
     "recentMaintenanceCalls": "Chamadas de Manutenção Recentes",
+    "latestServiceRequests": "Últimas solicitações de serviço e seu status atual",
+    "assignedTo": "Atribuído a",
     "scheduleMaintenance": "Agendar Manutenção",
-    "maintenanceAppointments": "Agendamentos de manutenção"
+    "maintenanceAppointments": "Agendamentos de manutenção",
+    "quickActions": "Ações Rápidas",
+    "createNewCall": "Criar Nova Chamada",
+    "addClient": "Adicionar Cliente",
+    "generateInvoice": "Gerar Fatura",
+    "systemAlerts": "Alertas do Sistema",
+    "overdueCalls": "Chamadas em Atraso",
+    "requireImmediate": "Requerem atenção imediata",
+    "scheduledToday": "Agendadas Hoje"
   },
   "calls": {
     "title": "Chamadas de Manutenção"
@@ -77,5 +93,25 @@
     "delete": "Excluir",
     "save": "Salvar",
     "cancel": "Cancelar"
+  },
+  "status": {
+    "open": "Aberto",
+    "inProgress": "Em Andamento",
+    "completed": "Concluído"
+  },
+  "priority": {
+    "high": "Alta",
+    "medium": "Média",
+    "low": "Baixa"
+  },
+  "services": {
+    "hvacRepair": "Reparo de HVAC",
+    "plumbingRepair": "Reparo Hidráulico",
+    "cleaningService": "Serviço de Limpeza"
+  },
+  "time": {
+    "hoursAgo": "horas atrás",
+    "dayAgo": "dia atrás",
+    "daysAgo": "dias atrás"
   }
 }
