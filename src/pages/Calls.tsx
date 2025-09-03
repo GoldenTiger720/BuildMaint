@@ -83,36 +83,54 @@ const mockCalls = [
   }
 ];
 
-const getStatusBadge = (status: string) => {
-  switch (status) {
-    case 'open':
-      return <Badge variant="secondary" className="status-open">Open</Badge>;
-    case 'in-progress':
-      return <Badge variant="secondary" className="status-progress">In Progress</Badge>;
-    case 'completed':
-      return <Badge variant="secondary" className="status-completed">Completed</Badge>;
-    default:
-      return <Badge variant="secondary">{status}</Badge>;
-  }
-};
-
-const getPriorityBadge = (priority: string) => {
-  switch (priority) {
-    case 'high':
-      return <Badge variant="destructive">High</Badge>;
-    case 'medium':
-      return <Badge variant="secondary">Medium</Badge>;
-    case 'low':
-      return <Badge variant="outline">Low</Badge>;
-    default:
-      return <Badge variant="secondary">{priority}</Badge>;
-  }
-};
 
 export const Calls: React.FC = () => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
+
+  const getStatusBadge = (status: string) => {
+    switch (status) {
+      case 'open':
+        return <Badge variant="secondary" className="status-open">{t('status.open')}</Badge>;
+      case 'in-progress':
+        return <Badge variant="secondary" className="status-progress">{t('status.inProgress')}</Badge>;
+      case 'completed':
+        return <Badge variant="secondary" className="status-completed">{t('status.completed')}</Badge>;
+      default:
+        return <Badge variant="secondary">{status}</Badge>;
+    }
+  };
+
+  const getPriorityBadge = (priority: string) => {
+    switch (priority) {
+      case 'high':
+        return <Badge variant="destructive">{t('priority.high')}</Badge>;
+      case 'medium':
+        return <Badge variant="secondary">{t('priority.medium')}</Badge>;
+      case 'low':
+        return <Badge variant="outline">{t('priority.low')}</Badge>;
+      default:
+        return <Badge variant="secondary">{priority}</Badge>;
+    }
+  };
+
+  const getServiceName = (service: string) => {
+    switch (service) {
+      case 'HVAC Repair':
+        return t('services.hvacRepair');
+      case 'Electrical Maintenance':
+        return t('services.electricalMaintenance');
+      case 'Plumbing Repair':
+        return t('services.plumbingRepair');
+      case 'Cleaning Service':
+        return t('services.cleaningService');
+      case 'Security System':
+        return t('services.securitySystem');
+      default:
+        return service;
+    }
+  };
 
   const filteredCalls = mockCalls.filter(call => {
     const matchesSearch = call.client.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -124,6 +142,20 @@ export const Calls: React.FC = () => {
     return matchesSearch && matchesStatus;
   });
 
+  const getStatusFilterLabel = (status: string) => {
+    if (status === 'all') return t('calls.all');
+    switch (status) {
+      case 'open':
+        return t('status.open');
+      case 'in-progress':
+        return t('status.inProgress');
+      case 'completed':
+        return t('status.completed');
+      default:
+        return status;
+    }
+  };
+
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
@@ -131,21 +163,21 @@ export const Calls: React.FC = () => {
         <div>
           <h1 className="text-3xl font-bold">{t('calls.title')}</h1>
           <p className="text-muted-foreground">
-            Manage and track all building maintenance requests
+            {t('calls.description')}
           </p>
         </div>
         <Button className="bg-gradient-primary">
           <PlusIcon className="mr-2 h-4 w-4" />
-          New Call
+          {t('calls.newCall')}
         </Button>
       </div>
 
       {/* Filters */}
       <Card>
         <CardHeader>
-          <CardTitle>Filter Calls</CardTitle>
+          <CardTitle>{t('calls.filterCalls')}</CardTitle>
           <CardDescription>
-            Search and filter maintenance calls by various criteria
+            {t('calls.filterDescription')}
           </CardDescription>
         </CardHeader>
         <CardContent>
@@ -154,7 +186,7 @@ export const Calls: React.FC = () => {
               <div className="relative">
                 <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
                 <Input
-                  placeholder="Search by client, service, or technician..."
+                  placeholder={t('calls.searchPlaceholder')}
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   className="pl-10"
@@ -165,23 +197,23 @@ export const Calls: React.FC = () => {
               <DropdownMenuTrigger asChild>
                 <Button variant="outline" className="gap-2">
                   <FunnelIcon className="h-4 w-4" />
-                  Status: {statusFilter === 'all' ? 'All' : statusFilter}
+                  {t('calls.status')}: {getStatusFilterLabel(statusFilter)}
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuLabel>Filter by Status</DropdownMenuLabel>
+                <DropdownMenuLabel>{t('calls.filterByStatus')}</DropdownMenuLabel>
                 <DropdownMenuSeparator />
                 <DropdownMenuItem onClick={() => setStatusFilter('all')}>
-                  All Statuses
+                  {t('calls.allStatuses')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setStatusFilter('open')}>
-                  Open
+                  {t('status.open')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setStatusFilter('in-progress')}>
-                  In Progress
+                  {t('status.inProgress')}
                 </DropdownMenuItem>
                 <DropdownMenuItem onClick={() => setStatusFilter('completed')}>
-                  Completed
+                  {t('status.completed')}
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
@@ -194,9 +226,9 @@ export const Calls: React.FC = () => {
         <CardHeader>
           <div className="flex justify-between items-center">
             <div>
-              <CardTitle>All Calls ({filteredCalls.length})</CardTitle>
+              <CardTitle>{t('calls.allCalls')} ({filteredCalls.length})</CardTitle>
               <CardDescription>
-                Complete list of maintenance calls and their details
+                {t('calls.completeList')}
               </CardDescription>
             </div>
           </div>
@@ -206,15 +238,15 @@ export const Calls: React.FC = () => {
             <Table>
               <TableHeader>
                 <TableRow>
-                  <TableHead>Call ID</TableHead>
-                  <TableHead>Client</TableHead>
-                  <TableHead>Service</TableHead>
-                  <TableHead>Technician</TableHead>
-                  <TableHead>Status</TableHead>
-                  <TableHead>Priority</TableHead>
-                  <TableHead>Budget</TableHead>
-                  <TableHead>Created</TableHead>
-                  <TableHead className="text-right">Actions</TableHead>
+                  <TableHead>{t('calls.callId')}</TableHead>
+                  <TableHead>{t('calls.client')}</TableHead>
+                  <TableHead>{t('calls.service')}</TableHead>
+                  <TableHead>{t('calls.technician')}</TableHead>
+                  <TableHead>{t('common.status')}</TableHead>
+                  <TableHead>{t('calls.priority')}</TableHead>
+                  <TableHead>{t('calls.budget')}</TableHead>
+                  <TableHead>{t('calls.created')}</TableHead>
+                  <TableHead className="text-right">{t('calls.actions')}</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -222,7 +254,7 @@ export const Calls: React.FC = () => {
                   <TableRow key={call.id} className="hover:bg-muted/50">
                     <TableCell className="font-medium">{call.id}</TableCell>
                     <TableCell>{call.client}</TableCell>
-                    <TableCell>{call.service}</TableCell>
+                    <TableCell>{getServiceName(call.service)}</TableCell>
                     <TableCell>{call.technician}</TableCell>
                     <TableCell>{getStatusBadge(call.status)}</TableCell>
                     <TableCell>{getPriorityBadge(call.priority)}</TableCell>
@@ -236,20 +268,20 @@ export const Calls: React.FC = () => {
                           </Button>
                         </DropdownMenuTrigger>
                         <DropdownMenuContent align="end">
-                          <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                          <DropdownMenuLabel>{t('calls.actions')}</DropdownMenuLabel>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem>
                             <EyeIcon className="mr-2 h-4 w-4" />
-                            View Details
+                            {t('calls.viewDetails')}
                           </DropdownMenuItem>
                           <DropdownMenuItem>
                             <PencilIcon className="mr-2 h-4 w-4" />
-                            Edit Call
+                            {t('calls.editCall')}
                           </DropdownMenuItem>
                           <DropdownMenuSeparator />
                           <DropdownMenuItem className="text-destructive">
                             <TrashIcon className="mr-2 h-4 w-4" />
-                            Delete Call
+                            {t('calls.deleteCall')}
                           </DropdownMenuItem>
                         </DropdownMenuContent>
                       </DropdownMenu>

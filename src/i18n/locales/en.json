@@ -37,7 +37,29 @@
     "scheduledToday": "Scheduled Today"
   },
   "calls": {
-    "title": "Maintenance Calls"
+    "title": "Maintenance Calls",
+    "description": "Manage and track all building maintenance requests",
+    "newCall": "New Call",
+    "filterCalls": "Filter Calls",
+    "filterDescription": "Search and filter maintenance calls by various criteria",
+    "searchPlaceholder": "Search by client, service, or technician...",
+    "status": "Status",
+    "all": "All",
+    "filterByStatus": "Filter by Status",
+    "allStatuses": "All Statuses",
+    "allCalls": "All Calls",
+    "completeList": "Complete list of maintenance calls and their details",
+    "callId": "Call ID",
+    "client": "Client",
+    "service": "Service",
+    "technician": "Technician",
+    "priority": "Priority",
+    "budget": "Budget",
+    "created": "Created",
+    "actions": "Actions",
+    "viewDetails": "View Details",
+    "editCall": "Edit Call",
+    "deleteCall": "Delete Call"
   },
   "clients": {
     "title": "Clients"
@@ -107,7 +129,9 @@
   "services": {
     "hvacRepair": "HVAC Repair",
     "plumbingRepair": "Plumbing Repair",
-    "cleaningService": "Cleaning Service"
+    "cleaningService": "Cleaning Service",
+    "electricalMaintenance": "Electrical Maintenance",
+    "securitySystem": "Security System"
   },
   "time": {
     "hoursAgo": "hours ago",

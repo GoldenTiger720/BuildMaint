@@ -37,7 +37,29 @@
     "scheduledToday": "Programadas Hoy"
   },
   "calls": {
-    "title": "Llamadas de Mantenimiento"
+    "title": "Llamadas de Mantenimiento",
+    "description": "Gestionar y rastrear todas las solicitudes de mantenimiento de edificios",
+    "newCall": "Nueva Llamada",
+    "filterCalls": "Filtrar Llamadas",
+    "filterDescription": "Buscar y filtrar llamadas de mantenimiento por varios criterios",
+    "searchPlaceholder": "Buscar por cliente, servicio o técnico...",
+    "status": "Estado",
+    "all": "Todos",
+    "filterByStatus": "Filtrar por Estado",
+    "allStatuses": "Todos los Estados",
+    "allCalls": "Todas las Llamadas",
+    "completeList": "Lista completa de llamadas de mantenimiento y sus detalles",
+    "callId": "ID de Llamada",
+    "client": "Cliente",
+    "service": "Servicio",
+    "technician": "Técnico",
+    "priority": "Prioridad",
+    "budget": "Presupuesto",
+    "created": "Creado",
+    "actions": "Acciones",
+    "viewDetails": "Ver Detalles",
+    "editCall": "Editar Llamada",
+    "deleteCall": "Eliminar Llamada"
   },
   "clients": {
     "title": "Clientes"
@@ -107,7 +129,9 @@
   "services": {
     "hvacRepair": "Reparación de HVAC",
     "plumbingRepair": "Reparación de Fontanería",
-    "cleaningService": "Servicio de Limpieza"
+    "cleaningService": "Servicio de Limpieza",
+    "electricalMaintenance": "Mantenimiento Eléctrico",
+    "securitySystem": "Sistema de Seguridad"
   },
   "time": {
     "hoursAgo": "horas atrás",
