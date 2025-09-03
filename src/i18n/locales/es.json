@@ -62,7 +62,14 @@
     "deleteCall": "Eliminar Llamada"
   },
   "clients": {
-    "title": "Clientes"
+    "title": "Clientes",
+    "description": "Gestionar su base de datos de clientes y relaciones",
+    "addClient": "Agregar Cliente",
+    "searchPlaceholder": "Buscar clientes por nombre, contacto o tipo...",
+    "activeCalls": "Llamadas Activas",
+    "totalCalls": "Total de Llamadas",
+    "viewDetails": "Ver Detalles",
+    "newCall": "Nueva Llamada"
   },
   "technicians": {
     "title": "Técnicos",
@@ -137,5 +144,11 @@
     "hoursAgo": "horas atrás",
     "dayAgo": "día atrás",
     "daysAgo": "días atrás"
+  },
+  "clientTypes": {
+    "commercial": "Comercial",
+    "office": "Oficina",
+    "retail": "Comercio",
+    "residential": "Residencial"
   }
 }

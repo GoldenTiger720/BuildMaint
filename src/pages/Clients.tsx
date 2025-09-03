@@ -76,32 +76,48 @@ const mockClients = [
   }
 ];
 
-const getTypeBadge = (type: string) => {
-  const colors = {
-    'Commercial': 'bg-primary-light text-primary-foreground',
-    'Office': 'bg-secondary-light text-secondary-foreground',
-    'Retail': 'bg-success-light text-success-foreground',
-    'Residential': 'bg-warning-light text-warning-foreground'
-  };
-  
-  return (
-    <Badge variant="secondary" className={colors[type as keyof typeof colors] || 'bg-muted'}>
-      {type}
-    </Badge>
-  );
-};
-
-const getStatusBadge = (status: string) => {
-  return status === 'active' ? (
-    <Badge variant="secondary" className="status-completed">Active</Badge>
-  ) : (
-    <Badge variant="outline">Inactive</Badge>
-  );
-};
 
 export const Clients: React.FC = () => {
   const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
+
+  const getTypeBadge = (type: string) => {
+    const colors = {
+      'Commercial': 'bg-primary-light text-primary-foreground',
+      'Office': 'bg-secondary-light text-secondary-foreground',
+      'Retail': 'bg-success-light text-success-foreground',
+      'Residential': 'bg-warning-light text-warning-foreground'
+    };
+    
+    const getTypeTranslation = (clientType: string) => {
+      switch (clientType.toLowerCase()) {
+        case 'commercial':
+          return t('clientTypes.commercial');
+        case 'office':
+          return t('clientTypes.office');
+        case 'retail':
+          return t('clientTypes.retail');
+        case 'residential':
+          return t('clientTypes.residential');
+        default:
+          return clientType;
+      }
+    };
+    
+    return (
+      <Badge variant="secondary" className={colors[type as keyof typeof colors] || 'bg-muted'}>
+        {getTypeTranslation(type)}
+      </Badge>
+    );
+  };
+
+  const getStatusBadge = (status: string) => {
+    return status === 'active' ? (
+      <Badge variant="secondary" className="status-completed">{t('common.active')}</Badge>
+    ) : (
+      <Badge variant="outline">{t('common.inactive')}</Badge>
+    );
+  };
 
   const filteredClients = mockClients.filter(client =>
     client.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -116,12 +132,12 @@ export const Clients: React.FC = () => {
         <div>
           <h1 className="text-3xl font-bold">{t('clients.title')}</h1>
           <p className="text-muted-foreground">
-            Manage your client database and relationships
+            {t('clients.description')}
           </p>
         </div>
         <Button className="bg-gradient-primary">
           <PlusIcon className="mr-2 h-4 w-4" />
-          Add Client
+          {t('clients.addClient')}
         </Button>
       </div>
 
@@ -131,7 +147,7 @@ export const Clients: React.FC = () => {
           <div className="relative">
             <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
             <Input
-              placeholder="Search clients by name, contact, or type..."
+              placeholder={t('clients.searchPlaceholder')}
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               className="pl-10"
@@ -182,22 +198,22 @@ export const Clients: React.FC = () => {
               <div className="flex justify-between text-center pt-4 border-t border-border">
                 <div>
                   <div className="text-2xl font-bold text-primary">{client.activeCalls}</div>
-                  <div className="text-xs text-muted-foreground">Active Calls</div>
+                  <div className="text-xs text-muted-foreground">{t('clients.activeCalls')}</div>
                 </div>
                 <div className="border-l border-border"></div>
                 <div>
                   <div className="text-2xl font-bold">{client.totalCalls}</div>
-                  <div className="text-xs text-muted-foreground">Total Calls</div>
+                  <div className="text-xs text-muted-foreground">{t('clients.totalCalls')}</div>
                 </div>
               </div>
 
               {/* Actions */}
               <div className="flex gap-2 pt-2">
                 <Button variant="outline" size="sm" className="flex-1">
-                  View Details
+                  {t('clients.viewDetails')}
                 </Button>
                 <Button variant="outline" size="sm" className="flex-1">
-                  New Call
+                  {t('clients.newCall')}
                 </Button>
               </div>
             </CardContent>

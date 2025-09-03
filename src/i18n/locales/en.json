@@ -62,7 +62,14 @@
     "deleteCall": "Delete Call"
   },
   "clients": {
-    "title": "Clients"
+    "title": "Clients",
+    "description": "Manage your client database and relationships",
+    "addClient": "Add Client",
+    "searchPlaceholder": "Search clients by name, contact, or type...",
+    "activeCalls": "Active Calls",
+    "totalCalls": "Total Calls",
+    "viewDetails": "View Details",
+    "newCall": "New Call"
   },
   "technicians": {
     "title": "Technicians",
@@ -137,5 +144,11 @@
     "hoursAgo": "hours ago",
     "dayAgo": "day ago",
     "daysAgo": "days ago"
+  },
+  "clientTypes": {
+    "commercial": "Commercial",
+    "office": "Office",
+    "retail": "Retail",
+    "residential": "Residential"
   }
 }
