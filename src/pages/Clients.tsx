@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -99,6 +100,7 @@ const getStatusBadge = (status: string) => {
 };
 
 export const Clients: React.FC = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
 
   const filteredClients = mockClients.filter(client =>
@@ -112,7 +114,7 @@ export const Clients: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Clients</h1>
+          <h1 className="text-3xl font-bold">{t('clients.title')}</h1>
           <p className="text-muted-foreground">
             Manage your client database and relationships
           </p>

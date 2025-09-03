@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -104,12 +105,13 @@ const getSpecializationBadge = (specialization: string) => {
 };
 
 export const Technicians: React.FC = () => {
+  const { t } = useTranslation();
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Technicians</h1>
+          <h1 className="text-3xl font-bold">{t('technicians.title')}</h1>
           <p className="text-muted-foreground">
             Manage your technical staff and their assignments
           </p>

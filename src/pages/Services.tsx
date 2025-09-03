@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -76,6 +77,7 @@ const mockServices: Service[] = [
 ];
 
 export const Services: React.FC = () => {
+  const { t } = useTranslation();
   const [services, setServices] = useState<Service[]>(mockServices);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
@@ -135,7 +137,7 @@ export const Services: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Services</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t('services.title')}</h1>
           <p className="text-muted-foreground">Manage your service catalog and pricing</p>
         </div>
         <Button onClick={handleAddService} className="gap-2">

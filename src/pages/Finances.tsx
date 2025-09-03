@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -131,6 +132,7 @@ const mockBudgets: Budget[] = [
 ];
 
 export const Finances: React.FC = () => {
+  const { t } = useTranslation();
   const [transactions, setTransactions] = useState<Transaction[]>(mockTransactions);
   const [budgets, setBudgets] = useState<Budget[]>(mockBudgets);
   const [selectedDate, setSelectedDate] = useState<Date>();
@@ -185,7 +187,7 @@ export const Finances: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Finances</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t('finances.title')}</h1>
           <p className="text-muted-foreground">Manage budgets, accounts, and financial reports</p>
         </div>
         <div className="flex gap-2">

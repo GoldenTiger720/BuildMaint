@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { useTranslation } from 'react-i18next';
 import {
   HomeIcon,
   PhoneIcon,
@@ -15,20 +16,22 @@ import {
   BuildingOfficeIcon
 } from '@heroicons/react/24/outline';
 
-const navigation = [
-  { name: 'Dashboard', href: '/dashboard', icon: HomeIcon },
-  { name: 'Maintenance Calls', href: '/calls', icon: PhoneIcon },
-  { name: 'Clients', href: '/clients', icon: UsersIcon },
-  { name: 'Technicians', href: '/technicians', icon: WrenchScrewdriverIcon },
-  { name: 'Services', href: '/services', icon: BuildingOfficeIcon },
-  { name: 'Finances', href: '/finances', icon: CurrencyDollarIcon },
-  { name: 'Reports', href: '/reports', icon: ChartBarIcon },
-  { name: 'Settings', href: '/settings', icon: CogIcon },
+const getNavigation = (t: (key: string) => string) => [
+  { name: t('navigation.dashboard'), href: '/dashboard', icon: HomeIcon },
+  { name: t('navigation.maintenanceCalls'), href: '/calls', icon: PhoneIcon },
+  { name: t('navigation.clients'), href: '/clients', icon: UsersIcon },
+  { name: t('navigation.technicians'), href: '/technicians', icon: WrenchScrewdriverIcon },
+  { name: t('navigation.services'), href: '/services', icon: BuildingOfficeIcon },
+  { name: t('navigation.finances'), href: '/finances', icon: CurrencyDollarIcon },
+  { name: t('navigation.reports'), href: '/reports', icon: ChartBarIcon },
+  { name: t('navigation.settings'), href: '/settings', icon: CogIcon },
 ];
 
 export const Sidebar: React.FC = () => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const { t } = useTranslation();
+  const navigation = getNavigation(t);
 
   return (
     <div className={cn(
@@ -41,7 +44,7 @@ export const Sidebar: React.FC = () => {
           {!collapsed && (
             <div className="flex items-center space-x-2">
               <BuildingOfficeIcon className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-gradient">BuildMaint</span>
+              <span className="text-xl font-bold text-gradient">{t('app.name')}</span>
             </div>
           )}
           <Button

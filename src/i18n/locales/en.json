@@ -1,0 +1,81 @@
+{
+  "app": {
+    "title": "Building Maintenance Management",
+    "name": "BuildMaint"
+  },
+  "navigation": {
+    "dashboard": "Dashboard",
+    "maintenanceCalls": "Maintenance Calls",
+    "clients": "Clients",
+    "technicians": "Technicians", 
+    "services": "Services",
+    "finances": "Finances",
+    "reports": "Reports",
+    "settings": "Settings"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "activeClients": "Active Clients",
+    "recentMaintenanceCalls": "Recent Maintenance Calls",
+    "scheduleMaintenance": "Schedule Maintenance",
+    "maintenanceAppointments": "Maintenance appointments"
+  },
+  "calls": {
+    "title": "Maintenance Calls"
+  },
+  "clients": {
+    "title": "Clients"
+  },
+  "technicians": {
+    "title": "Technicians",
+    "generalMaintenance": "General Maintenance"
+  },
+  "services": {
+    "title": "Services",
+    "totalServices": "Total Services",
+    "activeServices": "Active Services",
+    "hvacMaintenance": "HVAC Maintenance",
+    "cleaningServices": "Cleaning Services",
+    "electricalServices": "Electrical Services",
+    "hvacServices": "HVAC Services",
+    "electricalMaintenance": "Electrical Maintenance"
+  },
+  "finances": {
+    "title": "Finances",
+    "reports": "Reports"
+  },
+  "reports": {
+    "title": "Reports & Analytics",
+    "financialReports": "Financial Reports"
+  },
+  "settings": {
+    "title": "Settings",
+    "saveChanges": "Save Changes",
+    "savePreferences": "Save Preferences",
+    "saveSecuritySettings": "Save Security Settings",
+    "saveSystemSettings": "Save System Settings",
+    "newMaintenanceCalls": "New Maintenance Calls",
+    "weeklyReports": "Weekly Reports",
+    "securitySettings": "Security Settings",
+    "regionalSettings": "Regional Settings",
+    "settingsSaved": "Settings saved"
+  },
+  "auth": {
+    "signOut": "Sign out"
+  },
+  "common": {
+    "name": "Name",
+    "email": "Email",
+    "phone": "Phone",
+    "status": "Status",
+    "active": "Active",
+    "inactive": "Inactive",
+    "search": "Search",
+    "filter": "Filter",
+    "add": "Add",
+    "edit": "Edit",
+    "delete": "Delete",
+    "save": "Save",
+    "cancel": "Cancel"
+  }
+}

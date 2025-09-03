@@ -1,0 +1,81 @@
+{
+  "app": {
+    "title": "Gestão de Manutenção Predial",
+    "name": "BuildMaint"
+  },
+  "navigation": {
+    "dashboard": "Painel",
+    "maintenanceCalls": "Chamadas de Manutenção",
+    "clients": "Clientes",
+    "technicians": "Técnicos",
+    "services": "Serviços",
+    "finances": "Finanças",
+    "reports": "Relatórios",
+    "settings": "Configurações"
+  },
+  "dashboard": {
+    "title": "Painel",
+    "activeClients": "Clientes Ativos",
+    "recentMaintenanceCalls": "Chamadas de Manutenção Recentes",
+    "scheduleMaintenance": "Agendar Manutenção",
+    "maintenanceAppointments": "Agendamentos de manutenção"
+  },
+  "calls": {
+    "title": "Chamadas de Manutenção"
+  },
+  "clients": {
+    "title": "Clientes"
+  },
+  "technicians": {
+    "title": "Técnicos",
+    "generalMaintenance": "Manutenção Geral"
+  },
+  "services": {
+    "title": "Serviços",
+    "totalServices": "Total de Serviços",
+    "activeServices": "Serviços Ativos",
+    "hvacMaintenance": "Manutenção de HVAC",
+    "cleaningServices": "Serviços de Limpeza",
+    "electricalServices": "Serviços Elétricos",
+    "hvacServices": "Serviços de HVAC",
+    "electricalMaintenance": "Manutenção Elétrica"
+  },
+  "finances": {
+    "title": "Finanças",
+    "reports": "Relatórios"
+  },
+  "reports": {
+    "title": "Relatórios e Análises",
+    "financialReports": "Relatórios Financeiros"
+  },
+  "settings": {
+    "title": "Configurações",
+    "saveChanges": "Salvar Alterações",
+    "savePreferences": "Salvar Preferências",
+    "saveSecuritySettings": "Salvar Configurações de Segurança",
+    "saveSystemSettings": "Salvar Configurações do Sistema",
+    "newMaintenanceCalls": "Novas Chamadas de Manutenção",
+    "weeklyReports": "Relatórios Semanais",
+    "securitySettings": "Configurações de Segurança",
+    "regionalSettings": "Configurações Regionais",
+    "settingsSaved": "Configurações salvas"
+  },
+  "auth": {
+    "signOut": "Sair"
+  },
+  "common": {
+    "name": "Nome",
+    "email": "E-mail",
+    "phone": "Telefone",
+    "status": "Status",
+    "active": "Ativo",
+    "inactive": "Inativo",
+    "search": "Pesquisar",
+    "filter": "Filtrar",
+    "add": "Adicionar",
+    "edit": "Editar",
+    "delete": "Excluir",
+    "save": "Salvar",
+    "cancel": "Cancelar"
+  }
+}

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -27,6 +28,7 @@ import { useAuth } from '@/contexts/AuthContext';
 import { useTheme } from '@/contexts/ThemeContext';
 
 export const Settings: React.FC = () => {
+  const { t } = useTranslation();
   const { user } = useAuth();
   const { theme, setTheme } = useTheme();
   const { toast } = useToast();
@@ -115,7 +117,7 @@ export const Settings: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Settings</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t('settings.title')}</h1>
           <p className="text-muted-foreground">Manage your account and system preferences</p>
         </div>
       </div>

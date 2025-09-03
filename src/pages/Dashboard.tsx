@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useTranslation } from 'react-i18next';
 import {
   PhoneIcon,
   UsersIcon,
@@ -114,12 +115,14 @@ const getPriorityBadge = (priority: string) => {
 };
 
 export const Dashboard: React.FC = () => {
+  const { t } = useTranslation();
+  
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Dashboard</h1>
+          <h1 className="text-3xl font-bold">{t('dashboard.title')}</h1>
           <p className="text-muted-foreground">
             Overview of your building maintenance operations
           </p>
@@ -154,7 +157,7 @@ export const Dashboard: React.FC = () => {
         {/* Recent Calls */}
         <Card className="lg:col-span-2">
           <CardHeader>
-            <CardTitle>Recent Maintenance Calls</CardTitle>
+            <CardTitle>{t('dashboard.recentMaintenanceCalls')}</CardTitle>
             <CardDescription>
               Latest service requests and their current status
             </CardDescription>
@@ -228,7 +231,7 @@ export const Dashboard: React.FC = () => {
                 <ClockIcon className="h-4 w-4 text-primary mt-0.5" />
                 <div>
                   <p className="text-sm font-medium">5 Scheduled Today</p>
-                  <p className="text-xs text-muted-foreground">Maintenance appointments</p>
+                  <p className="text-xs text-muted-foreground">{t('dashboard.maintenanceAppointments')}</p>
                 </div>
               </div>
             </CardContent>

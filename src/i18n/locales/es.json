@@ -1,0 +1,81 @@
+{
+  "app": {
+    "title": "Gestión de Mantenimiento de Edificios",
+    "name": "BuildMaint"
+  },
+  "navigation": {
+    "dashboard": "Panel de Control",
+    "maintenanceCalls": "Llamadas de Mantenimiento",
+    "clients": "Clientes",
+    "technicians": "Técnicos",
+    "services": "Servicios",
+    "finances": "Finanzas",
+    "reports": "Informes",
+    "settings": "Configuración"
+  },
+  "dashboard": {
+    "title": "Panel de Control",
+    "activeClients": "Clientes Activos",
+    "recentMaintenanceCalls": "Llamadas de Mantenimiento Recientes",
+    "scheduleMaintenance": "Programar Mantenimiento",
+    "maintenanceAppointments": "Citas de mantenimiento"
+  },
+  "calls": {
+    "title": "Llamadas de Mantenimiento"
+  },
+  "clients": {
+    "title": "Clientes"
+  },
+  "technicians": {
+    "title": "Técnicos",
+    "generalMaintenance": "Mantenimiento General"
+  },
+  "services": {
+    "title": "Servicios",
+    "totalServices": "Total de Servicios",
+    "activeServices": "Servicios Activos",
+    "hvacMaintenance": "Mantenimiento de HVAC",
+    "cleaningServices": "Servicios de Limpieza",
+    "electricalServices": "Servicios Eléctricos",
+    "hvacServices": "Servicios de HVAC",
+    "electricalMaintenance": "Mantenimiento Eléctrico"
+  },
+  "finances": {
+    "title": "Finanzas",
+    "reports": "Informes"
+  },
+  "reports": {
+    "title": "Informes y Análisis",
+    "financialReports": "Informes Financieros"
+  },
+  "settings": {
+    "title": "Configuración",
+    "saveChanges": "Guardar Cambios",
+    "savePreferences": "Guardar Preferencias",
+    "saveSecuritySettings": "Guardar Configuración de Seguridad",
+    "saveSystemSettings": "Guardar Configuración del Sistema",
+    "newMaintenanceCalls": "Nuevas Llamadas de Mantenimiento",
+    "weeklyReports": "Informes Semanales",
+    "securitySettings": "Configuración de Seguridad",
+    "regionalSettings": "Configuración Regional",
+    "settingsSaved": "Configuración guardada"
+  },
+  "auth": {
+    "signOut": "Cerrar Sesión"
+  },
+  "common": {
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "phone": "Teléfono",
+    "status": "Estado",
+    "active": "Activo",
+    "inactive": "Inactivo",
+    "search": "Buscar",
+    "filter": "Filtrar",
+    "add": "Agregar",
+    "edit": "Editar",
+    "delete": "Eliminar",
+    "save": "Guardar",
+    "cancel": "Cancelar"
+  }
+}

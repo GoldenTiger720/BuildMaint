@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -67,6 +68,7 @@ const technicianPerformance = [
 ];
 
 export const Reports: React.FC = () => {
+  const { t } = useTranslation();
   const [dateRange, setDateRange] = useState<DateRange | undefined>();
   const [selectedPeriod, setSelectedPeriod] = useState<string>('month');
   const [reportType, setReportType] = useState<string>('overview');
@@ -90,7 +92,7 @@ export const Reports: React.FC = () => {
     <div className="space-y-6">
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold tracking-tight">Reports & Analytics</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t('reports.title')}</h1>
           <p className="text-muted-foreground">Comprehensive insights and performance analytics</p>
         </div>
         <div className="flex gap-2">

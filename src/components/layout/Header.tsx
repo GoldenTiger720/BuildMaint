@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useAuth } from '@/contexts/AuthContext';
+import { LanguageSelector } from '@/components/LanguageSelector';
+import { useTranslation } from 'react-i18next';
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -23,6 +25,7 @@ export const Header: React.FC = () => {
   const { theme, toggleTheme } = useTheme();
   const { user, logout } = useAuth();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     logout();
@@ -34,11 +37,14 @@ export const Header: React.FC = () => {
       <div className="flex items-center justify-between h-full">
         <div className="flex items-center space-x-4">
           <h1 className="text-lg font-semibold text-foreground">
-            Building Maintenance Management
+            {t('app.title')}
           </h1>
         </div>
 
         <div className="flex items-center space-x-2">
+          {/* Language Selector */}
+          <LanguageSelector />
+
           {/* Theme Toggle */}
           <Button
             variant="ghost"
@@ -80,7 +86,7 @@ export const Header: React.FC = () => {
               <DropdownMenuSeparator />
               <DropdownMenuItem onClick={handleLogout} className="text-destructive">
                 <ArrowRightOnRectangleIcon className="mr-2 h-4 w-4" />
-                Sign out
+                {t('auth.signOut')}
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>

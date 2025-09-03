@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -109,6 +110,7 @@ const getPriorityBadge = (priority: string) => {
 };
 
 export const Calls: React.FC = () => {
+  const { t } = useTranslation();
   const [searchTerm, setSearchTerm] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
 
@@ -127,7 +129,7 @@ export const Calls: React.FC = () => {
       {/* Header */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-3xl font-bold">Maintenance Calls</h1>
+          <h1 className="text-3xl font-bold">{t('calls.title')}</h1>
           <p className="text-muted-foreground">
             Manage and track all building maintenance requests
           </p>
